@@ -39,6 +39,38 @@ if result.is_rfq:
     tt = result.trade_terms()  # TradeTerms | None
 ```
 
+## Syntagmatic analysis in practice
+
+Consider the ambiguous query:
+
+```
+"I want 500 shirts or polos in size XL"
+```
+
+A semantic model has to guess: does `in size XL` modify only `polos`, or the entire coordination `shirts or polos`? It will lean on world knowledge, training distribution, or hallucinate.
+
+`rfq-parser` resolves this structurally. The surface parse is:
+
+```
+NP[qty=500]
+ ├── NP "shirts"
+ │    └── COORD "or"
+ │         └── NP "polos"
+ └── PP[size] "in size XL"   ← attaches to the root NP, shared across coordination
+```
+
+Rule: a post-head PP always scopes over the nearest NP node, which here is the coordinated root — not just `polos`. No semantic reasoning needed.
+
+```python
+result = rfq_parser.parse("I want 500 shirts or polos in size XL")
+item = result.items[0]
+print(item.chunks)   # "shirts or polos"
+print(item.qty)      # 500.0
+print(item.sizes)    # ["XL"]
+```
+
+The LLM downstream receives `chunks = "shirts or polos"` — a clean noun phrase — instead of the raw query. Quantity and size are already extracted; the model only needs to reason about the product names.
+
 ## What it extracts
 
 Each `ParsedItem` contains:
