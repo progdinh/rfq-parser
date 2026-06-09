@@ -4,7 +4,7 @@ build-backend = "maturin"
 
 [project]
 name = "rfq-parser"
-version = "0.1.1"
+version = "0.1.2"
 description = "Pure syntagmatic rule-based parser for English RFQ documents (Vietnamese mode included) — LLM pre-processing layer for product name and spec extraction"
 authors = [{ name = "progdinh", email = "giordanodinh@gmail.com" }]
 license = { file = "LICENSE" }
