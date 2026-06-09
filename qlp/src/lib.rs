@@ -1,4 +1,4 @@
-// lib.rs — Arobid query tagger public API (v3)
+// lib.rs — public API
 //
 // Pipeline:
 //   parse_query(input) → ParsedQuery

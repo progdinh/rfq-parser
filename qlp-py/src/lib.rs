@@ -1,6 +1,6 @@
 use pyo3::prelude::*;
-use ds_qlp::{Chunk, Group};
-use ds_qlp_rfq::ParseResult as RustResult;
+use qlp::{Chunk, Group};
+use rfqlp::ParseResult as RustResult;
 
 // ── Helpers ───────────────────────────────────────────────────────────────────
 
@@ -120,12 +120,12 @@ impl ParseResult {
 // ── Entry point ───────────────────────────────────────────────────────────────
 
 /// Parse a raw query or RFQ document.
-/// Routes automatically: simple queries go through DS-QLP, RFQ documents
-/// through DS-QLP-RFQ.  Returns a ParseResult with one ParsedItem per
+/// Routes automatically: simple queries go through qlp, RFQ documents
+/// through rfqlp.  Returns a ParseResult with one ParsedItem per
 /// group (simple query) or per line item (RFQ).
 #[pyfunction]
 fn parse(query: &str) -> PyResult<ParseResult> {
-    match ds_qlp_rfq::parse(query) {
+    match rfqlp::parse(query) {
         RustResult::SimpleQuery(pq) => {
             let items = pq.groups
                 .iter()

@@ -1,4 +1,4 @@
-// token.rs — Token types for the Arobid query tagger (v3)
+// token.rs — token types
 //
 // Key change: ProductWord removed. Products are residual Sytg tokens.
 // Grade removed from tags — parser handles it via R6 (Num after Sytg = spec).

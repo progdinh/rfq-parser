@@ -1,6 +1,6 @@
-# DS-QLP-RFQ Performance Benchmark Report
+# rfqlp Performance Benchmark Report
 
-**Library:** `ds_qlp_rfq` v0.1.0  
+**Library:** `rfqlp` v0.1.0  
 **Tool:** Criterion 0.5 — 100 samples per benchmark, 3 s warmup  
 **Build:** `cargo bench` (`opt-level = 3`, `lto = true`, `codegen-units = 1`)  
 **Corpus:** 12 RFQ documents across 4 categories, sourced from `rfq_benchmark_600.jsonl`
@@ -16,9 +16,9 @@
 | **Throughput** | **14,563 RFQ docs / second** |
 | CI (low–high) | 14,532 – 14,595 doc/s |
 
-> DS-QLP-RFQ processes ~14.5k full RFQ documents/second on a single thread.  
-> Each document runs segmentation, N × DS-QLP item parses, trade-terms extraction, and DIMS stripping.  
-> At 7–15 items per document, this corresponds to **~130–215k item-level parses/second** — well within DS-QLP's headline 166k q/s.
+> rfqlp processes ~14.5k full RFQ documents/second on a single thread.  
+> Each document runs segmentation, N × qlp item parses, trade-terms extraction, and DIMS stripping.  
+> At 7–15 items per document, this corresponds to **~130–215k item-level parses/second** — well within qlp's headline 166k q/s.
 
 ---
 
@@ -42,7 +42,7 @@ abbreviated field names. Shortest pipeline due to low item count.
 
 ### numbered_medium — Standard numbered list, 6–8 items
 Most common buyer format in the dataset. Numbered items, trailing trade terms block.
-Cost grows linearly with item count; regex extraction dominates over DS-QLP time.
+Cost grows linearly with item count; regex extraction dominates over qlp time.
 
 | # | Description | Items | Mean (µs) | CI |
 |---|---|---|---|---|
@@ -56,7 +56,7 @@ Cost grows linearly with item count; regex extraction dominates over DS-QLP time
 
 ### numbered_large — Numbered list, 12–15 items
 Consolidated procurement lists. Overhead scales predictably: ~8 µs/item for
-item-normalizer + DS-QLP, plus fixed ~5 µs for segmentation and trade-terms scan.
+item-normalizer + qlp, plus fixed ~5 µs for segmentation and trade-terms scan.
 
 | # | Description | Items | Mean (µs) | CI |
 |---|---|---|---|---|
@@ -95,14 +95,14 @@ Includes Subject/Dear header preamble and markdown stripping overhead.
 ### Key observations
 
 - **Cost scales linearly with item count.** Each item runs through the full pipeline:
-  regex extraction (price, qty, origin, specs) + DS-QLP parse. Fixed overhead per document
+  regex extraction (price, qty, origin, specs) + qlp parse. Fixed overhead per document
   (segmentation + trade-terms scan) is ~5 µs and negligible.
 - **~8 µs per item** is the consistent per-item cost across all categories and formats.
-  This matches DS-QLP's own ~6–10 µs range for medium English queries, plus ~2 µs for
+  This matches qlp's own ~6–10 µs range for medium English queries, plus ~2 µs for
   regex preprocessing in `item_normalizer`.
 - **Markdown stripping adds < 1 µs** per item — `RE_MARKDOWN_BOLD` replacement is cheap.
 - **Formal email headers** (Subject/Dear paragraph) do not measurably increase cost —
-  the preamble is never parsed by DS-QLP, only consumed by the segmenter.
+  the preamble is never parsed by qlp, only consumed by the segmenter.
 - **14.5k doc/s on one thread** handles a 1,000 RPS API at under 7% of a single core.
   The downstream SLM (4B) at ~300 tokens/s is the real bottleneck by ×40.
 

@@ -1,6 +1,6 @@
-# DS-QLP Performance Benchmark Report
+# qlp Performance Benchmark Report
 
-**Library:** `ds_qlp` v0.1.0  
+**Library:** `qlp` v0.1.0  
 **Tool:** Criterion 0.5 — 100 samples per benchmark, 3 s warmup  
 **Build:** `cargo bench` (`opt-level = 3`, `lto = true`, `codegen-units = 1`)  
 **Corpus:** 45 queries across 9 categories (`qlp_corpus.jsonl`)
@@ -16,8 +16,8 @@
 | **Throughput** | **166,240 queries / second** |
 | CI (low–high) | 165,420 – 167,130 q/s |
 
-> DS-QLP processes ~166k queries/second on a single thread.  
-> The downstream SLM (4B) handles at most a few hundred queries/second — DS-QLP is not a bottleneck.
+> qlp processes ~166k queries/second on a single thread.  
+> The downstream SLM (4B) handles at most a few hundred queries/second — qlp is not a bottleneck.
 
 ---
 
@@ -179,7 +179,7 @@ Quantity ranges (`từ...đến`) and size range expansion.
 - **Most complex queries** (long EN, full-range VI complex) peak around 10 µs.
 - **Size range expansion** (`S đến XL` → 6 values) adds ~2–3 µs versus a plain size list.
 - **Chatbot intent phrases** (`I need`, `I'm looking for`) are consumed in the first pass with negligible overhead.
-- **DS-QLP is not a bottleneck** at any realistic request rate. At 166k q/s on one thread, it could serve a 1,000 RPS API with <0.1% of a single core.
+- **qlp is not a bottleneck** at any realistic request rate. At 166k q/s on one thread, it could serve a 1,000 RPS API with <0.1% of a single core.
 
 ---
 

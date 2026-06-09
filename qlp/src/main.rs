@@ -1,10 +1,10 @@
 use std::io::{self, Write};
-// Import the public API from the ds_qlp crate
-use ds_qlp::parse_query;
+// Import the public API from the qlp crate
+use qlp::parse_query;
 
 fn main() {
     println!("============================================================");
-    println!("     DS-QLP — Deep Search Query Lexer-Parser Test Bench     ");
+    println!("        qlp — Query Lexer-Parser Test Bench                ");
     println!("============================================================");
     println!("Enter a purchase query (EN/VI/Mixed). Type 'exit' to quit.\n");
 
@@ -31,7 +31,7 @@ fn main() {
         println!("\n--- [1. ORIGINAL INPUT] ---");
         println!("\"{}\"", input);
 
-        // ── Execute the Arobid query parser pipeline ───────────────────────
+        // ── Execute the query parser pipeline ───────────────────────
         let result = parse_query(input);
 
         println!("\n--- [2. GENERATED SLM DSL] ---");

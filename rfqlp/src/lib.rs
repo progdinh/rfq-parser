@@ -4,7 +4,7 @@ mod trade_terms;
 
 pub use trade_terms::TradeTerms;
 
-use ds_qlp::{parse_query, Group};
+use qlp::{parse_query, Group};
 use item_normalizer::{normalize, NormalizedItem};
 use segmenter::{is_rfq, segment};
 
@@ -19,7 +19,7 @@ pub struct RfqItem {
     pub currency:    Option<String>,
     pub origin:      Option<String>,
     pub dims:        Vec<String>,   // extracted inline measurement specs
-    pub groups:      Vec<Group>,    // parsed groups from ds-qlp (C1 + S1 for pipeline)
+    pub groups:      Vec<Group>,    // parsed groups from qlp (C1 + S1 for pipeline)
     pub slm_dsl:     String,
     pub search_strs: Vec<String>,
 }
@@ -118,7 +118,7 @@ pub fn parse_rfq(input: &str) -> ParsedRfq {
 // ── Unified entry point ───────────────────────────────────────────────────────
 
 pub enum ParseResult {
-    SimpleQuery(ds_qlp::ParsedQuery),
+    SimpleQuery(qlp::ParsedQuery),
     Rfq(ParsedRfq),
 }
 

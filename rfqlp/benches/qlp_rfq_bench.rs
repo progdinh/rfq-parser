@@ -1,5 +1,5 @@
 use criterion::{black_box, criterion_group, criterion_main, BenchmarkId, Criterion, Throughput};
-use ds_qlp_rfq::parse_rfq;
+use rfqlp::parse_rfq;
 
 // ── RFQ corpus by category ────────────────────────────────────────────────────
 // All entries sourced from rfq_benchmark_600.jsonl (English subset).
@@ -76,7 +76,7 @@ const NUMBERED_MEDIUM: &[&str] = &[
 
 // ── numbered_large: numbered list, 12–15 items ────────────────────────────────
 // Longer consolidated procurement lists. Cost scales linearly with item count
-// since each item runs through the full DS-QLP pipeline.
+// since each item runs through the full qlp pipeline.
 
 const NUMBERED_LARGE: &[&str] = &[
     // GEN-0023 — 15 items, CFR Sydney

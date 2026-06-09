@@ -25,9 +25,9 @@ classifiers = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/arobid/rfq-parser"
-Repository = "https://github.com/arobid/rfq-parser"
-Issues = "https://github.com/arobid/rfq-parser/issues"
+Homepage = "https://github.com/progdinh/rfq-parser"
+Repository = "https://github.com/progdinh/rfq-parser"
+Issues = "https://github.com/progdinh/rfq-parser/issues"
 
 [tool.maturin]
 features = []

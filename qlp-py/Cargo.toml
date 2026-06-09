@@ -5,7 +5,7 @@ edition = "2021"
 description = "Fast rule-based parser for RFQ documents and product queries"
 authors = ["progdinh"]
 license = "MIT"
-repository = "https://github.com/arobid/rfq-parser"
+repository = "https://github.com/progdinh/rfq-parser"
 keywords = ["rfq", "procurement", "parser", "product-query", "nlp"]
 categories = ["text-processing", "parser-implementations"]
 
@@ -15,5 +15,5 @@ crate-type = ["cdylib"]
 
 [dependencies]
 pyo3       = { version = "0.22", features = ["extension-module", "abi3-py311"] }
-ds_qlp     = { path = "../ds-qlp" }
-ds_qlp_rfq = { path = "../ds-qlp-rfq" }
+qlp   = { path = "../qlp" }
+rfqlp = { path = "../rfqlp" }

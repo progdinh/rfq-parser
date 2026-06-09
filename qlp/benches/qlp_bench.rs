@@ -1,5 +1,5 @@
 use criterion::{black_box, criterion_group, criterion_main, BenchmarkId, Criterion, Throughput};
-use ds_qlp::parse_query;
+use qlp::parse_query;
 
 // ── Query corpus by category ──────────────────────────────────────────────────
 // Mirrors qlp_corpus.jsonl — edit both together when adding queries.

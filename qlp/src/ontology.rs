@@ -1,4 +1,4 @@
-// ontology.rs — Domain lookup tables for the Arobid tagger (v3)
+// ontology.rs — domain lookup tables (colors, sizes, materials, units ...)
 //
 // KEY CHANGE from v2: `products` list is REMOVED.
 // Products are now residual Sytg tokens — no ontology lookup needed.

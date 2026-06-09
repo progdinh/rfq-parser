@@ -1,9 +1,9 @@
 use std::io::{self, Write};
-use ds_qlp_rfq::{parse, ParseResult};
+use rfqlp::{parse, ParseResult};
 
 fn main() {
     println!("============================================================");
-    println!("   DS-RFQ — RFQ Document Parser + DS-QLP Test Bench        ");
+    println!("       rfqlp — RFQ Document Parser + qlp Test Bench      ");
     println!("============================================================");
     println!("Paste a query or full RFQ document. Type 'exit' to quit.\n");
 
@@ -23,7 +23,7 @@ fn main() {
 
         match parse(input) {
             ParseResult::SimpleQuery(result) => {
-                println!("\n[MODE: simple query → DS-QLP]\n");
+                println!("\n[MODE: simple query → qlp]\n");
 
                 println!("--- [2. GENERATED SLM DSL] ---");
                 if result.slm_dsl.is_empty() {

@@ -1,4 +1,4 @@
-// lexer.rs — Arobid query tagger (v3)
+// lexer.rs — rule-based query lexer
 //
 // Critical design decisions:
 //   - NO has_qty flag: all numbers emitted as Num (multi-group queries need multiple Nums)

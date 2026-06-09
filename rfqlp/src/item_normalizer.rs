@@ -122,7 +122,7 @@ pub fn normalize(raw: &str) -> NormalizedItem {
     // "Product: Car Battery, 3000 Cartons, Spec: Black, 70Ah" →
     //   "Car Battery, 3000 Cartons, Black, 70Ah"
     // The "Spec:" label is stripped but its comma-separated values remain as
-    // regular text for ds_qlp to classify (color, material, standard, etc.).
+    // regular text for qlp to classify (color, material, standard, etc.).
     // "Qty: N/A Liters" is removed — no extractable quantity.
     text = RE_PRODUCT_MARKER.replace(&text, "").to_string();
     text = RE_SPEC_MARKER.replace_all(&text, ", ").to_string();
@@ -277,7 +277,7 @@ pub fn normalize(raw: &str) -> NormalizedItem {
         .join(" ");
     let cleaned = cleaned.trim_end_matches(':').trim().to_string();
 
-    // 5. Prepend qty so DS-QLP finds it as a leading Num
+    // 5. Prepend qty so qlp finds it as a leading Num
     item.description = match (&item.qty, &item.uom) {
         (Some(q), Some(u)) => format!("{} {} {}", fmt_qty(*q), u, cleaned),
         (Some(q), None)    => format!("{} {}", fmt_qty(*q), cleaned),

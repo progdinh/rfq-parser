@@ -23,7 +23,7 @@ jobs:
       - name: Build wheels
         uses: PyO3/maturin-action@v1
         with:
-          working-directory: ds-qlp-py
+          working-directory: qlp-py
           command: build
           args: --release --out dist
           # Linux: build manylinux wheels (portable across distros)
@@ -33,7 +33,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: wheels-${{ matrix.os }}
-          path: ds-qlp-py/dist
+          path: qlp-py/dist
 
   # ── Build pure sdist (source distribution) ───────────────────────────────
   sdist:
@@ -44,14 +44,14 @@ jobs:
       - name: Build sdist
         uses: PyO3/maturin-action@v1
         with:
-          working-directory: ds-qlp-py
+          working-directory: qlp-py
           command: sdist
           args: --out dist
       - name: Upload sdist
         uses: actions/upload-artifact@v4
         with:
           name: wheels-sdist
-          path: ds-qlp-py/dist
+          path: qlp-py/dist
 
   # ── Publish to PyPI ───────────────────────────────────────────────────────
   publish:
