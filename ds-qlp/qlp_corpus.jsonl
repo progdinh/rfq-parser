@@ -1,0 +1,45 @@
+{"id":"VI-001","category":"vi_simple","input":"300 áo thun","note":"bare product + quantity"}
+{"id":"VI-002","category":"vi_simple","input":"500 kg thép","note":"weight unit"}
+{"id":"VI-003","category":"vi_simple","input":"200 cái quần jean","note":"Vietnamese count unit"}
+{"id":"VI-004","category":"vi_simple","input":"50 đôi vớ","note":"pair unit"}
+{"id":"VI-005","category":"vi_simple","input":"1000 bộ quần áo","note":"set unit"}
+{"id":"VI-006","category":"vi_medium","input":"300 áo thun màu đỏ","note":"product + inline color"}
+{"id":"VI-007","category":"vi_medium","input":"500 áo polo nam size L","note":"product + gender + size without keyword"}
+{"id":"VI-008","category":"vi_medium","input":"khoảng 200 quần jean nữ màu xanh","note":"approximation keyword + gender + color"}
+{"id":"VI-009","category":"vi_medium","input":"tôi cần 150 bộ quần áo cotton","note":"need keyword + material"}
+{"id":"VI-010","category":"vi_medium","input":"300 áo thun màu đỏ xanh kích thước S M L","note":"color keyword + size keyword multi-value"}
+{"id":"VI-011","category":"vi_complex","input":"50 áo và quần và slip hoặc 30 đôi vớ","note":"multi-chunk first group + second group R1"}
+{"id":"VI-012","category":"vi_complex","input":"tôi muốn mua 300 áo thun và quần jean nam nữ màu đỏ xanh đen kích thước S M L XL","note":"full benchmark query"}
+{"id":"VI-013","category":"vi_complex","input":"tôi cần 150 áo thun hoặc áo polo size S đến XL màu đỏ","note":"size range expansion + multi-chunk"}
+{"id":"VI-014","category":"vi_complex","input":"500 quần hoặc áo màu trắng hoặc đen kích thước M đến XL","note":"R9 attr-list connector + size range"}
+{"id":"VI-015","category":"vi_complex","input":"từ 100 đến 200 áo thun và quần jean nam màu đen size L XL","note":"qty range + multi-chunk + attrs"}
+{"id":"EN-001","category":"en_simple","input":"500 polo shirts","note":"bare EN product"}
+{"id":"EN-002","category":"en_simple","input":"100 small red cotton t-shirts","note":"inline size + color + material"}
+{"id":"EN-003","category":"en_simple","input":"200 kg stainless steel","note":"weight + material"}
+{"id":"EN-004","category":"en_simple","input":"1000 pcs nitrile gloves","note":"pcs unit + material"}
+{"id":"EN-005","category":"en_simple","input":"50 sets metal shelving","note":"sets unit"}
+{"id":"EN-006","category":"en_medium","input":"500 kg stainless steel pipe 304 DN50","note":"industrial grade + DN size"}
+{"id":"EN-007","category":"en_medium","input":"1000 blue nitrile gloves size XL industrial grade","note":"color + size + grade descriptor"}
+{"id":"EN-008","category":"en_medium","input":"120 tons zinc ingots silver from China","note":"weight + color + origin (not yet parsed)"}
+{"id":"EN-009","category":"en_medium","input":"300 cartons wall paint light grey washable","note":"multi-word color + descriptor"}
+{"id":"EN-010","category":"en_medium","input":"100 small or large red cotton and blue polyester polo shirts and t-shirts","note":"full EN benchmark query"}
+{"id":"MX-001","category":"mixed","input":"300 áo thun blue size S M L","note":"VI product + EN color + EN size"}
+{"id":"MX-002","category":"mixed","input":"500 polo shirts nam nữ màu đỏ và xanh","note":"EN product + VI gender + VI color keyword"}
+{"id":"MX-003","category":"mixed","input":"200 quần jean black cotton size 30 đến 34","note":"VI product + EN attrs + numeric size range"}
+{"id":"MX-004","category":"mixed","input":"tôi cần 100 cotton t-shirts size XL màu navy","note":"VI need + EN product + EN size + VI color keyword"}
+{"id":"MX-005","category":"mixed","input":"500 áo thun + quần jean màu đen size S đến XL","note":"+ connector + mixed attrs + size range"}
+{"id":"CB-001","category":"chatbot","input":"I need around 500 cartons of nitrile gloves blue size M from Malaysia","note":"EN chatbot, approximation, origin not parsed"}
+{"id":"CB-002","category":"chatbot","input":"looking for 1000 units lithium battery 12V 200Ah solar storage","note":"sourcing intent, technical spec in Sytg"}
+{"id":"CB-003","category":"chatbot","input":"sourcing 1200 meters denim fabric black cotton from Bangladesh","note":"sourcing keyword + material + color + origin"}
+{"id":"CB-004","category":"chatbot","input":"I want 300 pieces LED panel lights white surface mount aluminum frame","note":"want keyword + multi-word Sytg"}
+{"id":"CB-005","category":"chatbot","input":"I'm looking for organic cashew nuts W240 whole grade about 2 FCL from Cambodia","note":"complex chatbot, grade in Sytg"}
+{"id":"IN-001","category":"industrial","input":"500 kg ống thép 304","note":"VI industrial, R6 grade spec"}
+{"id":"IN-002","category":"industrial","input":"200 ống thép không gỉ DN50 SCH40","note":"stainless material + DN + schedule sizes"}
+{"id":"IN-003","category":"industrial","input":"1000 kg thép carbon ASTM A36","note":"standard detection"}
+{"id":"IN-004","category":"industrial","input":"500 nhôm 6061 6 inch","note":"aluminum grade + numeric size"}
+{"id":"IN-005","category":"industrial","input":"300 ống inox 316L DN100 schedule 40","note":"inox material + spec + DN + schedule"}
+{"id":"RN-001","category":"range","input":"từ 100 đến 200 áo thun","note":"qty range with từ...đến"}
+{"id":"RN-002","category":"range","input":"100 đến 500 kg thép","note":"qty range with unit"}
+{"id":"RN-003","category":"range","input":"300 áo thun size S đến XL","note":"size range expansion S→XL"}
+{"id":"RN-004","category":"range","input":"500 quần jean size 30 đến 34 màu đen","note":"numeric size range + color"}
+{"id":"RN-005","category":"range","input":"100 đến 200 áo thun hoặc áo polo size XXS đến XL màu đỏ xanh","note":"qty range + multi-chunk + full size range"}

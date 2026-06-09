@@ -1,0 +1,8 @@
+target/
+*.whl
+*.so
+.env
+__pycache__/
+*.pyc
+.DS_Store
+dist/

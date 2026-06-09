@@ -1,0 +1,7 @@
+[workspace]
+members = [
+    "ds-qlp",
+    "ds-qlp-rfq",
+    "ds-qlp-py",
+]
+resolver = "2"

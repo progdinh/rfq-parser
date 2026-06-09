@@ -1,0 +1,33 @@
+[build-system]
+requires = ["maturin>=1.4,<2"]
+build-backend = "maturin"
+
+[project]
+name = "rfq-parser"
+version = "0.1.0"
+description = "Fast rule-based parser for RFQ documents and short product queries"
+authors = [{ name = "progdinh", email = "giordanodinh@gmail.com" }]
+license = { file = "LICENSE" }
+readme = "README.md"
+requires-python = ">=3.11"
+keywords = ["rfq", "procurement", "parser", "product-query", "nlp", "b2b"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Rust",
+    "Topic :: Text Processing :: Linguistic",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+]
+
+[project.urls]
+Homepage = "https://github.com/arobid/rfq-parser"
+Repository = "https://github.com/arobid/rfq-parser"
+Issues = "https://github.com/arobid/rfq-parser/issues"
+
+[tool.maturin]
+features = []
