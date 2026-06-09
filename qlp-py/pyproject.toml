@@ -4,7 +4,7 @@ build-backend = "maturin"
 
 [project]
 name = "rfq-parser"
-version = "0.1.0"
+version = "0.1.1"
 description = "Fast rule-based parser for RFQ documents and short product queries"
 authors = [{ name = "progdinh", email = "giordanodinh@gmail.com" }]
 license = { file = "LICENSE" }
