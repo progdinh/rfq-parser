@@ -1,8 +1,8 @@
 # rfq-parser
 
-Fast, rule-based parser for **RFQ (Request for Quotation) documents** and **short product queries**.
+Pure **syntagmatic** rule-based parser for **English RFQ documents** and **short product queries**, with a **Vietnamese mode**.
 
-Built in Rust with Python bindings via PyO3. Extracts structured product specifications in **<1ms** — no LLM, no network calls.
+No semantic model, no embeddings, no LLM — purely structural analysis of surface form. Built in Rust with Python bindings via PyO3, it runs in **<1ms** and is designed as a lightweight **pre-processing layer** for LLM-based product name and spec extraction: strip quantities, units, colours, sizes, and materials from the raw text so the model only sees what it actually needs to reason about.
 
 ## Install
 
@@ -54,12 +54,13 @@ Each `ParsedItem` contains:
 
 `ParseResult.trade_terms()` returns a `TradeTerms` object with `incoterm`, `currency`, `destination`, `lead_time`, `payment` for RFQ documents.
 
-## Why rule-based?
+## Why syntagmatic / rule-based?
 
+- **No semantic bindings** — no embeddings, no model weights, no ontology lookups at runtime
 - **Deterministic** — same input always gives the same output
-- **Fast** — <1ms, safe to call on every keystroke
+- **Fast** — <1ms, safe to call on every keystroke or in a streaming pipeline
 - **No dependencies** — no model to download, no API key
-- **LLM-friendly** — use the structured output as context to reduce token count in downstream LLM calls
+- **LLM pre-processing** — strips structured fields (qty, uom, colours, sizes, materials) so downstream LLM calls receive a clean noun phrase, reducing token waste and hallucination surface
 
 ## Supported
 

@@ -5,12 +5,12 @@ build-backend = "maturin"
 [project]
 name = "rfq-parser"
 version = "0.1.1"
-description = "Fast rule-based parser for RFQ documents and short product queries"
+description = "Pure syntagmatic rule-based parser for English RFQ documents (Vietnamese mode included) — LLM pre-processing layer for product name and spec extraction"
 authors = [{ name = "progdinh", email = "giordanodinh@gmail.com" }]
 license = { file = "LICENSE" }
 readme = "README.md"
 requires-python = ">=3.11"
-keywords = ["rfq", "procurement", "parser", "product-query", "nlp", "b2b"]
+keywords = ["rfq", "procurement", "parser", "product-query", "nlp", "b2b", "vietnamese", "llm-preprocessing", "syntagmatic"]
 classifiers = [
     "Development Status :: 4 - Beta",
     "Intended Audience :: Developers",
