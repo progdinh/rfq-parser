@@ -79,7 +79,7 @@ pub struct TradeTerms {
     #[pyo3(get)] pub payment:     Option<String>,
 }
 
-/// Top-level result returned by parse_input().
+/// Top-level result returned by parse().
 /// is_rfq = true when the input was routed through the RFQ pipeline.
 #[pyclass]
 pub struct ParseResult {
@@ -120,9 +120,8 @@ impl ParseResult {
 // ── Entry point ───────────────────────────────────────────────────────────────
 
 /// Parse a raw query or RFQ document.
-/// Routes automatically: simple queries go through qlp, RFQ documents
-/// through rfqlp.  Returns a ParseResult with one ParsedItem per
-/// group (simple query) or per line item (RFQ).
+/// Routes automatically: simple product queries return one ParsedItem per group,
+/// RFQ documents return one ParsedItem per line item.
 #[pyfunction]
 fn parse(query: &str) -> PyResult<ParseResult> {
     match rfqlp::parse(query) {
